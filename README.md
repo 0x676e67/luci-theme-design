@@ -1,11 +1,10 @@
-<img src="./preview/page.png"/> 
-
 # luci-theme-design
 
 **luci-theme-design**基于[luci-theme-neobird](https://github.com/thinktip/luci-theme-neobird)二次开发, 适用于[lede](https://github.com/coolsnowwolf/lede) / [OpenWrt](https://github.com/openwrt/openwrt)
 
 > 默认分支只支持lede源码的lua版本，若使用openwrt 21/22请拉取[js](https://github.com/gngpp/luci-theme-design/tree/js)版本
 
+## 旧版优化
 - 修复安装package提示信息背景泛白
 - 优化菜单缩放
 - 优化显示网口down状态显示图标
@@ -24,7 +23,8 @@
 - Update header box-shadow style
 - Update uci-change overflow
 - Fix nlbw component
-- Added QSDK/QWRT wizard and iStore menu icon fonts
+- 支持QWRT(QSDK)、iStore向导导航
+- 支持openwrt21/22、lede
 
 ## 主要特点
 
@@ -65,6 +65,7 @@ make V=s
 </details>
 
 <img src="./preview/login.png"/>
+<img src="./preview/page.png"/> 
 <img src="./preview/home.png"/>
 <img src="./preview/light.png"/> 
 <img src="./preview/home1.png"/>
