@@ -4,7 +4,7 @@
 
 **luci-theme-design**基于[luci-theme-neobird](https://github.com/thinktip/luci-theme-neobird)二次开发, 适用于[lede](https://github.com/coolsnowwolf/lede) / [OpenWrt](https://github.com/openwrt/openwrt)
 
-> 默认分支只支持lede源码的lua版本，若使用openwrt 21/22版本请拉取[js](https://github.com/gngpp/luci-theme-design/tree/js)分支
+> 默认分支只支持lede源码的lua版本，若使用openwrt 21/22请拉取[js](https://github.com/gngpp/luci-theme-design/tree/js)版本
 
 - 修复安装package提示信息背景泛白
 - 优化菜单缩放
@@ -35,8 +35,7 @@
 
 ## 体验Webapp方法
 
-- 在移动端(iOS/iPadOS)浏览器打开管理界面，添加到主屏幕即可。
-- 想要实现完全的沉浸式（无浏览器导航、无地址栏等）体验，需要使用SSL证书，请自行申请域名、证书、安装并启用。
+- 在移动端(iOS/iPadOS、Android谷歌)浏览器打开设置管理，添加到主屏幕即可。
 - 如果不使用SSL证书，基于安全原因，iOS/iPadOS 在打开新的页面后，将会显示浏览器顶部菜单栏。
 
 ## PS
