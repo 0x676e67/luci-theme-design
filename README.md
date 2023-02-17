@@ -1,11 +1,22 @@
-<img src="./preview/page.png"/> 
-
 # luci-theme-design
 
 **luci-theme-design**基于[luci-theme-neobird](https://github.com/thinktip/luci-theme-neobird)二次开发, 适用于[lede](https://github.com/coolsnowwolf/lede) / [OpenWrt](https://github.com/openwrt/openwrt)
 
-> 默认分支只支持lede源码的lua版本，若使用openwrt 21/22版本请拉取[js](https://github.com/gngpp/luci-theme-design/tree/js)分支
+> 默认分支只支持lede源码的lua版本，若使用openwrt 21/22请拉取[js](https://github.com/gngpp/luci-theme-design/tree/js)版本
 
+## 主要特点
+
+- 针对移动端优化，特别适合手机端做为webapp使用
+- 修改和优化了很多插件显示，完善的icon图标，尽量视觉统一
+- 简洁的登录界面，底部导航栏，类App的沉浸式体验；
+- 适配深色模式，适配系统自动切换；
+
+## 体验Webapp方法
+
+- 在移动端(iOS/iPadOS、Android谷歌)浏览器打开设置管理，添加到主屏幕即可。
+- 如果不使用SSL证书，基于安全原因，iOS/iPadOS 在打开新的页面后，将会显示浏览器顶部菜单栏。
+
+## 旧版优化
 - 修复安装package提示信息背景泛白
 - 优化菜单缩放
 - 优化显示网口down状态显示图标
@@ -24,20 +35,8 @@
 - Update header box-shadow style
 - Update uci-change overflow
 - Fix nlbw component
-- Added QSDK/QWRT wizard and iStore menu icon fonts
-
-## 主要特点
-
-- 针对移动端优化，特别适合手机端做为webapp使用
-- 修改和优化了很多插件显示，完善的icon图标，尽量视觉统一
-- 简洁的登录界面，底部导航栏，类App的沉浸式体验；
-- 适配深色模式，适配系统自动切换；
-
-## 体验Webapp方法
-
-- 在移动端(iOS/iPadOS)浏览器打开管理界面，添加到主屏幕即可。
-- 想要实现完全的沉浸式（无浏览器导航、无地址栏等）体验，需要使用SSL证书，请自行申请域名、证书、安装并启用。
-- 如果不使用SSL证书，基于安全原因，iOS/iPadOS 在打开新的页面后，将会显示浏览器顶部菜单栏。
+- 支持QWRT(QSDK)、iStore向导导航
+- 支持openwrt21/22、lede
 
 ## PS
 
@@ -66,6 +65,7 @@ make V=s
 </details>
 
 <img src="./preview/login.png"/>
+<img src="./preview/page.png"/> 
 <img src="./preview/home.png"/>
 <img src="./preview/light.png"/> 
 <img src="./preview/home1.png"/>
