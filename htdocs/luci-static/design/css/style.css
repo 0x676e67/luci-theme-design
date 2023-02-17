@@ -2647,6 +2647,9 @@ header > .container > .pull-right > * {
 .node-status-realtime fieldset[id="cbi-table-table"] table[id="connections"] tr.cbi-section-table-row.cbi-rowstyle-2 {
     background-color: unset;
 }
+.node-status-realtime fieldset[id="cbi-table-table"] .cbi-section-node {
+    overflow: auto;
+}
 
 select#cbi\.combobox\.cbid\.shadowsocksr\.cfg013fd6\.tunnel_forward {
     overflow: hidden;
