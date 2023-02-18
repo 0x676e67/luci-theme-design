@@ -28,7 +28,22 @@
         document.getElementsByTagName('head')[0].appendChild(oMeta);
     }
 
-    $(".main > .loading").fadeOut();
+    // .node-status-realtime embed[src="/luci-static/resources/bandwidth.svg"] + div + br + table
+    // .node-status-realtime embed[src="/luci-static/resources/wifirate.svg"] + div + br + table
+    // .node-status-realtime embed[src="/luci-static/resources/wireless.svg"] + div + br + table
+    $(document).ready(function(){
+        ["bandwidth", "wifirate", "wireless"].forEach(function (value) {
+            let target = $(".node-status-realtime embed[src=\"\/luci-static\/resources\/" + value + ".svg\"] + div + br + table");
+            if (target.length != 0) {
+                let div =  document.createElement("div");
+                div.style = "overflow-x: auto;"
+                target.before(div);
+                newTarget = target.clone();
+                target.remove();
+                div.append(newTarget.get(0))
+            }
+        })
+   });
 
     /**
      * trim text, Remove spaces, wrap
