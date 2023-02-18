@@ -36,9 +36,9 @@
 - Update uci-change overflow
 - Fix nlbw component
 - 支持QWRT(QSDK)、iStore向导导航
-- 支持openwrt21/22、lede
+- 适配OpenWrt 21/22
 
-## PS
+## Q&A
 
 - 资源接口icon未完善，如果有能力画图的欢迎pr，但请确保跟现有icon颜色风格一致
 - 有bug欢迎提issue
