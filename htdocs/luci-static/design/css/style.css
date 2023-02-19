@@ -1582,7 +1582,6 @@ div [id*="cbi-wireless"] [id*="-__status"] table td small {
 }
 
 /* fix node-status-routes */
-
 .node-status-routes .cbi-section-node{
     max-height: 500px;
     overflow-y: auto;
@@ -1590,7 +1589,6 @@ div [id*="cbi-wireless"] [id*="-__status"] table td small {
 }
 
 /* fix multiple table */
-
 table table {
     border: none;
 }
@@ -1736,7 +1734,6 @@ form.inline + form.inline,
 }
 
 /* table */
-
 .tabs {
     margin: 15px 0;
     overflow-x: auto;
