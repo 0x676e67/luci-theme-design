@@ -4,7 +4,7 @@ luci-theme-design 是一个针对移动端和PC端的沉浸式WebApp体验和优
 > **luci-theme-design**基于luci-theme-neobird, 适用于[lede](https://github.com/coolsnowwolf/lede) / [OpenWrt](https://github.com/openwrt/openwrt)
 > 默认分支只支持lede源码的lua版本，若使用openwrt 21/22请拉取[js](https://github.com/gngpp/luci-theme-design/tree/js)版本
 
-## 主要特点
+### 主要特点
 
 - 针对移动端优化，特别适合手机端做为WebApp使用
 - 修改和优化了很多插件显示，完善的icon图标，尽量视觉统一
@@ -12,12 +12,12 @@ luci-theme-design 是一个针对移动端和PC端的沉浸式WebApp体验和优
 - 适配深色模式，适配系统自动切换；
 - 适配openwrt 21/22、lede
 
-## 体验WebApp方法
+### 体验WebApp方法
 
 - 在移动端(iOS/iPadOS、Android谷歌)浏览器打开设置管理，添加到主屏幕即可。
 - 如果不使用SSL证书，基于安全原因，iOS/iPadOS 在打开新的页面后，将会显示浏览器顶部菜单栏。
 
-## 优化
+### 优化
 - 修复安装package提示信息背景泛白
 - 优化菜单折叠和缩放
 - 优化显示网口down状态显示图标
@@ -39,13 +39,13 @@ luci-theme-design 是一个针对移动端和PC端的沉浸式WebApp体验和优
 - 支持QWRT(QSDK)、iStore向导导航
 - 适配OpenWrt 21/22
 
-## Q&A
+### Q&A
 
 - 资源接口icon未完善，如果有能力画图的欢迎pr，但请确保跟现有icon颜色风格一致
 - 有bug欢迎提issue
 - 主题个人配色可能会不符合大众胃口，欢迎提配色建议
 
-## 自行编译
+### 编译
 
 ```
 git clone https://github.com/gngpp/luci-theme-design.git  package/luci-theme-design
@@ -53,7 +53,7 @@ make menuconfig # choose LUCI->Theme->Luci-theme-design
 make V=s
 ```
 
-## 预览
+### 预览
 
 <details> <summary>iOS</summary>
 <img src="./preview/webapp_home.PNG"/>
