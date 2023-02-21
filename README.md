@@ -66,7 +66,7 @@ luci-theme-design is an OpenWrt LuCI theme for immersive WebApp experience and o
 - If there is a bug, please raise an issue
 - The theme's personal color matching may not meet the public's appetite, welcome to provide color matching suggestions
 
-### compile
+### Compile
 
 ```
 git clone https://github.com/gngpp/luci-theme-design.git package/luci-theme-design
