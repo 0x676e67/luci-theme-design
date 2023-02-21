@@ -60,12 +60,6 @@ luci-theme-design is an OpenWrt LuCI theme for immersive WebApp experience and o
 - Support QWRT (QSDK), iStore wizard navigation
 - Adapt to OpenWrt 21/22
 
-### Q&A
-
-- The resource interface icon is not perfect. If you have the ability to draw a picture, you are welcome to pr, but please make sure it is consistent with the existing icon color style
-- If there is a bug, please raise an issue
-- The theme's personal color matching may not meet the public's appetite, welcome to provide color matching suggestions
-
 ### Compile
 
 ```
@@ -73,6 +67,12 @@ git clone https://github.com/gngpp/luci-theme-design.git package/luci-theme-desi
 make menuconfig # choose LUCI->Theme->Luci-theme-design
 make V=s
 ```
+
+### Q&A
+
+- The resource interface icon is not perfect. If you have the ability to draw a picture, you are welcome to pr, but please make sure it is consistent with the existing icon color style
+- If there is a bug, please raise an issue
+- The theme's personal color matching may not meet the public's appetite, welcome to provide color matching suggestions
 
 ### preview
 
