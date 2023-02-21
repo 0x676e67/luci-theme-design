@@ -60,12 +60,6 @@ luci-theme-design 是一个针对移动端和PC端的沉浸式WebApp体验和优
 - 支持QWRT(QSDK)、iStore向导导航
 - 适配OpenWrt 21/22
 
-### Q&A
-
-- 资源接口icon未完善，如果有能力画图的欢迎pr，但请确保跟现有icon颜色风格一致
-- 有bug欢迎提issue
-- 主题个人配色可能会不符合大众胃口，欢迎提配色建议
-
 ### 编译
 
 ```
@@ -73,6 +67,12 @@ git clone https://github.com/gngpp/luci-theme-design.git  package/luci-theme-des
 make menuconfig # choose LUCI->Theme->Luci-theme-design  
 make V=s
 ```
+
+### Q&A
+
+- 资源接口icon未完善，如果有能力画图的欢迎pr，但请确保跟现有icon颜色风格一致
+- 有bug欢迎提issue
+- 主题个人配色可能会不符合大众胃口，欢迎提配色建议
 
 ### 预览
 
