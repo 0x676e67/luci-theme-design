@@ -53,7 +53,7 @@ make menuconfig # choose LUCI->Theme->Luci-theme-design
 make V=s
 ```
 
-## 预览(ps: 下面PC端普通字体为苹果浏览器字体，只有移动端是正常显示的)
+## 预览
 
 <details> <summary>iOS</summary>
 <img src="./preview/webapp_home.PNG"/>
