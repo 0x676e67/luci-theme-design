@@ -3,16 +3,16 @@
     LuCI design theme for OpenWrt
   </h1>
 <a href="/LICENSE">
-    <img src="https://img.shields.io/github/license/gngpp/luci-theme-design?style=flat-square&a=1" alt="">
+    <img src="https://img.shields.io/github/license/gngpp/luci-theme-design?style=flat&a=1" alt="">
   </a>
   <a href="https://github.com/gngpp/luci-theme-design/pulls">
-    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="">
+    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat" alt="">
   </a><a href="https://github.com/gngpp/luci-theme-design/issues/new">
-    <img src="https://img.shields.io/badge/Issues-welcome-brightgreen.svg?style=flat-square">
+    <img src="https://img.shields.io/badge/Issues-welcome-brightgreen.svg?style=flat">
   </a><a href="https://github.com/gngpp/luci-theme-design/releases">
-    <img src="https://img.shields.io/github/release/gngpp/luci-theme-design.svg?style=flat-square">
+    <img src="https://img.shields.io/github/release/gngpp/luci-theme-design.svg?style=flat">
   </a><a href="hhttps://github.com/gngpp/luci-theme-design/releases">
-    <img src="https://img.shields.io/github/downloads/gngpp/luci-theme-design/total?style=flat-square">
+    <img src="https://img.shields.io/github/downloads/gngpp/luci-theme-design/total?style=flat&?">
   </a>
 </div>
 <br>
