@@ -1,6 +1,6 @@
 # luci-theme-design
 
-luci-theme-design 是一个针对移动端和PC端的沉浸式体验和优化的OpenWrt LuCI主题
+luci-theme-design 是一个针对移动端和PC端的沉浸式WebApp体验和优化的OpenWrt LuCI主题
 > **luci-theme-design**基于luci-theme-neobird, 适用于[lede](https://github.com/coolsnowwolf/lede) / [OpenWrt](https://github.com/openwrt/openwrt)
 > 默认分支只支持lede源码的lua版本，若使用openwrt 21/22请拉取[js](https://github.com/gngpp/luci-theme-design/tree/js)版本
 
