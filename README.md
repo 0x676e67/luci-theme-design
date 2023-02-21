@@ -1,59 +1,80 @@
+<div align="center">
+  <h1 align="center">
+    LuCI design theme for OpenWrt
+  </h1>
+<a href="/LICENSE">
+    <img src="https://img.shields.io/github/license/gngpp/luci-theme-design?style=flat-square&a=1" alt="">
+  </a>
+  <a href="https://github.com/gngpp/luci-theme-design/pulls">
+    <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" alt="">
+  </a><a href="https://github.com/gngpp/luci-theme-design/issues/new">
+    <img src="https://img.shields.io/badge/Issues-welcome-brightgreen.svg?style=flat-square">
+  </a><a href="https://github.com/gngpp/luci-theme-design/releases">
+    <img src="https://img.shields.io/github/release/gngpp/luci-theme-design.svg?style=flat-square">
+  </a><a href="hhttps://github.com/gngpp/luci-theme-design/releases">
+    <img src="https://img.shields.io/github/downloads/gngpp/luci-theme-design/total?style=flat-square">
+  </a>
+</div>
+<br>
+
+<br>English | [简体中文](README_zh.md)
 # luci-theme-design
 
-luci-theme-design 是一个针对移动端和PC端的沉浸式WebApp体验和优化的OpenWrt LuCI主题
-> **luci-theme-design**基于luci-theme-neobird, 适用于[lede](https://github.com/coolsnowwolf/lede) / [OpenWrt](https://github.com/openwrt/openwrt)
-> 默认分支只支持lede源码的lua版本，若使用openwrt 21/22请拉取[js](https://github.com/gngpp/luci-theme-design/tree/js)版本
+luci-theme-design is an OpenWrt LuCI theme for immersive WebApp experience and optimization on mobile and PC
 
-### 主要特点
+> **luci-theme-design** based on luci-theme-neobird, suitable for [lede](https://github.com/coolsnowwolf/lede) / [OpenWrt](https://github.com/openwrt/openwrt ).
+> The default branch only supports the lua version of the lede source code. If you use openwrt 21/22, please pull the [js](https://github.com/gngpp/luci-theme-design/tree/js) version.
 
-- 针对移动端优化，特别适合手机端做为WebApp使用
-- 修改和优化了很多插件显示，完善的icon图标，尽量视觉统一
-- 简洁的登录界面，底部导航栏，类App的沉浸式体验；
-- 适配深色模式，适配系统自动切换；
-- 适配openwrt 21/22、lede
+### Features
 
-### 体验WebApp方法
+- Optimized for the mobile terminal, especially suitable for the mobile terminal as a WebApp
+- Modified and optimized the display of many plug-ins, improved icon icons, and unified visuals as much as possible
+- Simple login interface, bottom navigation bar, immersive app-like experience;
+- Adapt to dark mode, adapt to automatic switching of the system;
+- Adapt to openwrt 21/22, lede
 
-- 在移动端(iOS/iPadOS、Android谷歌)浏览器打开设置管理，添加到主屏幕即可。
-- 如果不使用SSL证书，基于安全原因，iOS/iPadOS 在打开新的页面后，将会显示浏览器顶部菜单栏。
+### Experience WebApp method
 
-### 优化
-- 修复安装package提示信息背景泛白
-- 优化菜单折叠和缩放
-- 优化显示网口down状态显示图标
-- 优化logo显示
-- 新增各设备状态图标显示
-- 更换logo显示为字体"OpenWrt"，支持以主机名显示logo
-- 修复部分插件显示bug
-- 修复vssr状态bar
-- 修复诸多bug
-- 修复兼容部分插件样式
-- 修复aliyundrive-webdav样式
-- 修复vssr在iOS/iPadOS WebApp模式下显示异常
-- 修复openclash插件在iOS/iPadOS WebApp 模式下env(safe-area-inset-bottom) = 0
-- 优化菜单hover action状态分辨
-- 支持luci-app-wizard向导菜单
+- Open the settings management in the mobile browser (iOS/iPadOS, Android Google) and add it to the home screen.
+- If the SSL certificate is not used, iOS/iPadOS will display the menu bar at the top of the browser after opening a new page for security reasons.
+
+### Optimization
+- Fix the white background of the installation package prompt information
+- Optimize menu collapsing and zooming
+- Optimized to display network port down state display icon
+- Optimize logo display
+- Added the status icon display of each device
+- Replace the logo display with the font "OpenWrt", and support displaying the logo with the host name
+- Fix some plug-in display bugs
+- Fix vssr status bar
+- Fixed many bugs
+- Fix compatibility with some plug-in styles
+- Fix aliyundrive-webdav style
+- Fixed the abnormal display of vssr in iOS/iPadOS WebApp mode
+- Fix openclash plugin env(safe-area-inset-bottom) = 0 in iOS/iPadOS WebApp mode
+- Optimize menu hover action state resolution
+- Support luci-app-wizard wizard menu
 - Update header box-shadow style
-- Update uci-change overflow
+-Update uci-change overflow
 - Fix nlbw component
-- 支持QWRT(QSDK)、iStore向导导航
-- 适配OpenWrt 21/22
+- Support QWRT (QSDK), iStore wizard navigation
+- Adapt to OpenWrt 21/22
 
 ### Q&A
 
-- 资源接口icon未完善，如果有能力画图的欢迎pr，但请确保跟现有icon颜色风格一致
-- 有bug欢迎提issue
-- 主题个人配色可能会不符合大众胃口，欢迎提配色建议
+- The resource interface icon is not perfect. If you have the ability to draw a picture, you are welcome to pr, but please make sure it is consistent with the existing icon color style
+- If there is a bug, please raise an issue
+- The theme's personal color matching may not meet the public's appetite, welcome to provide color matching suggestions
 
-### 编译
+### compile
 
 ```
-git clone https://github.com/gngpp/luci-theme-design.git  package/luci-theme-design
-make menuconfig # choose LUCI->Theme->Luci-theme-design  
+git clone https://github.com/gngpp/luci-theme-design.git package/luci-theme-design
+make menuconfig # choose LUCI->Theme->Luci-theme-design
 make V=s
 ```
 
-### 预览
+### preview
 
 <details> <summary>iOS</summary>
 <img src="./preview/webapp_home.PNG"/>
@@ -66,10 +87,9 @@ make V=s
 </details>
 
 <img src="./preview/login.png"/>
-<img src="./preview/page.png"/> 
+<img src="./preview/page.png"/>
 <img src="./preview/home.png"/>
-<img src="./preview/light.png"/> 
+<img src="./preview/light.png"/>
 <img src="./preview/home1.png"/>
 <img src="./preview/wifi.png"/>
 <img src="./preview/iface.png"/>
-
