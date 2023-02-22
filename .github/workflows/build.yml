@@ -57,7 +57,7 @@ jobs:
         id: build
         run: | 
           cd openwrt-sdk
-          git clone -b "${{ steps.extract_branch.outputs.branch }}" https://github.com/gngpp/luci-theme-design.git package/luci-theme-design
+          git clone -b "$(git symbolic-ref --short HEAD)" https://github.com/gngpp/luci-theme-design.git package/luci-theme-design
           ./scripts/feeds update -a && ./scripts/feeds install -a
           echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
           make defconfig
