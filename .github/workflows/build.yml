@@ -55,6 +55,27 @@ jobs:
           cd openwrt-sdk && cd package/luci-theme-design
           echo "release_tag=$(cat Makefile | grep PKG_VERSION | sed 's/PKG_VERSION:=//')" >> $GITHUB_OUTPUT
           echo "release_date=$(cat Makefile | grep PKG_RELEASE | sed 's/PKG_RELEASE:=//')" >> $GITHUB_OUTPUT
+
+      - name: Build Changelog
+        uses: mikepenz/release-changelog-builder-action@v3
+        with:
+          configurationJson: |
+            {
+              "template": "#{{CHANGELOG}}\n\n<details>\n<summary>Uncategorized</summary>\n\n#{{UNCATEGORIZED}}\n</details>",
+              "categories": [
+                {
+                    "title": "## 💬 Other",
+                    "labels": ["other"]
+                },
+                {
+                    "title": "## 📦 Dependencies",
+                    "labels": ["dependencies"]
+                }
+              ]
+            }
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+
       - name: Upload to release
         uses: softprops/action-gh-release@v1
         if: steps.build.outputs.status == 'success' && !cancelled()
@@ -63,4 +84,5 @@ jobs:
         with:
           name: ${{ steps.tag.outputs.release_tag }}-${{ steps.tag.outputs.release_date }} luci-theme-design
           tag_name: ${{ steps.tag.outputs.release_tag }}-${{ steps.tag.outputs.release_date }}-${{ inputs.choich_branch }}
+          body_path: ${{steps.github_release.outputs.changelog}}
           files: ${{ steps.build.outputs.TARGET }}
