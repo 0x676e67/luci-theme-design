@@ -1,6 +1,9 @@
 name: Build
 
 on:
+  push:
+    tags: 
+      - 'v*'
   repository_dispatch:
   workflow_dispatch:
     inputs:
@@ -13,9 +16,9 @@ on:
         - main
         - js
 jobs:
+
   build:
     runs-on: ubuntu-20.04
-      
     steps:
 
       - name: Initialization Environment
@@ -53,8 +56,12 @@ jobs:
         id: tag
         run: |
           cd openwrt-sdk && cd package/luci-theme-design
-          echo "release_tag=$(cat Makefile | grep PKG_VERSION | sed 's/PKG_VERSION:=//')" >> $GITHUB_OUTPUT
           echo "release_date=$(cat Makefile | grep PKG_RELEASE | sed 's/PKG_RELEASE:=//')" >> $GITHUB_OUTPUT
+          if [-z "${{ github.ref }}" ];
+          then 
+            echo "release_tag=$(cat Makefile | grep PKG_VERSION | sed 's/PKG_VERSION:=//')-$release_date" >> $GITHUB_OUTPUT
+          else
+            echo "release_tag=${{ github.ref }}" >> $GITHUB_OUTPUT
 
       - name: Build Changelog
         uses: mikepenz/release-changelog-builder-action@v3
@@ -76,13 +83,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
 
-      - name: Upload to release
-        uses: softprops/action-gh-release@v1
-        if: steps.build.outputs.status == 'success' && !cancelled()
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      - name: Upload to Release
+        uses: svenstaro/upload-release-action@v2
         with:
-          name: ${{ steps.tag.outputs.release_tag }}-${{ steps.tag.outputs.release_date }} luci-theme-design
-          tag_name: ${{ steps.tag.outputs.release_tag }}-${{ steps.tag.outputs.release_date }}-${{ inputs.choich_branch }}
-          body_path: ${{steps.github_release.outputs.changelog}}
-          files: ${{ steps.build.outputs.TARGET }}
+          repo_token: ${{ secrets.TOKEN }}
+          tag: ${{ steps.tag.outputs.release_tag }}-${{ steps.tag.outputs.release_date }}-${{ inputs.choich_branch }}
+          asset_name: ${{ steps.tag.outputs.release_tag }}-${{ steps.tag.outputs.release_date }} luci-theme-design
+          file: ${{ steps.build.outputs.TARGET }}
+          body: ${{steps.github_release.outputs.commits}}
+          overwrite: true
