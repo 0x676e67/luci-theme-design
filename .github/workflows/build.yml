@@ -1,9 +1,9 @@
 name: Build
 
 on:
-  push:
-    tags:
-      - 'v*'
+  # push:
+  #   tags:
+  #     - 'v*'
   repository_dispatch:
   workflow_dispatch:
     # inputs:
@@ -33,7 +33,7 @@ jobs:
           [ -f /etc/issue.net ] && cat /etc/issue.net
           [ -f /etc/issue ] && cat /etc/issue
           ulimit -a
-          
+
       - name: Checkout
         uses: actions/checkout@v3
 
