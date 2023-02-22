@@ -35,9 +35,9 @@ jobs:
           ulimit -a
 
       - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF/refs\/tags\//})"
+
 
       - name: Get version
         id: get_version
