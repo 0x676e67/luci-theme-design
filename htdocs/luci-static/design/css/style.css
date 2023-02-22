@@ -3237,3 +3237,8 @@ form[action="/cgi-bin/luci/admin/network/wireless_join"] input[class="cbi-button
 .node-services-appfilter .cbi-section.cbi-tblsection {
     overflow: auto;
 }
+
+/* fix node-nlbw-usage botton style */
+.node-nlbw-usage #resetDatabase {
+    border-radius: 8px;
+}
