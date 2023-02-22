@@ -52,13 +52,18 @@ jobs:
           echo "TARGET=$(pwd)/$TARGET"
           echo "TARGET=$(pwd)/$TARGET" >> $GITHUB_OUTPUT
           echo "status=success" >> $GITHUB_OUTPUT
+
+      - name: Get version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+
       - name: Generate release tag
         id: tag
         run: |
           cd openwrt-sdk && cd package/luci-theme-design
           echo "release_date=$(cat Makefile | grep PKG_RELEASE | sed 's/PKG_RELEASE:=//')" >> $GITHUB_OUTPUT
           echo "release_tag=$(cat Makefile | grep PKG_VERSION | sed 's/PKG_VERSION:=//')-$release_date" >> $GITHUB_OUTPUT
-          if [ "$release_tag" != "${{ github.ref }}" ]; then
+          if [ "${{ steps.tag.outputs.release_tag }}" != "${{ steps.get_version.outputs.VERSION }}" ]; then
             exit 1
           fi
 
