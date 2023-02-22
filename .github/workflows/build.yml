@@ -37,11 +37,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Extract branch name
-        id: extract_branch
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF/refs\/tags\//})"
-
-
       - name: Get version
         id: get_version
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
