@@ -69,7 +69,8 @@ jobs:
         run: |
           cd openwrt-sdk && cd package/luci-theme-design
           release_date="$(cat Makefile | grep PKG_RELEASE | sed 's/PKG_RELEASE:=//')"
-          release_tag="$(cat Makefile | grep PKG_VERSION | sed 's/PKG_VERSION:=//')-$release_date"
+          release_tag="$(cat Makefile | grep PKG_VERSION | sed 's/PKG_VERSION:=//')"-"$release_date"
+          echo "tag=$release_tag"
           echo "release_tag=$release_tag" >> $GITHUB_OUTPUT
           if [ "$release_tag" != "${{ steps.get_version.outputs.VERSION }}" ]; then
             exit 1
