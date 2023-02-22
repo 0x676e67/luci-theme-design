@@ -59,9 +59,9 @@ jobs:
         id: tag
         run: |
           cd openwrt-sdk && cd package/luci-theme-design
-          echo "release_date=$(cat Makefile | grep PKG_RELEASE | sed 's/PKG_RELEASE:=//')" >> $GITHUB_OUTPUT
           if [-z "${{ github.ref }}" ];
           then 
+            echo "release_date=$(cat Makefile | grep PKG_RELEASE | sed 's/PKG_RELEASE:=//')" >> $GITHUB_OUTPUT
             echo "release_tag=$(cat Makefile | grep PKG_VERSION | sed 's/PKG_VERSION:=//')-$release_date" >> $GITHUB_OUTPUT
           else
             echo "release_tag=${{ github.ref }}" >> $GITHUB_OUTPUT
@@ -90,8 +90,8 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.TOKEN }}
-          tag: ${{ steps.tag.outputs.release_tag }}-${{ steps.tag.outputs.release_date }}-${{ inputs.choich_branch }}
-          asset_name: ${{ steps.tag.outputs.release_tag }}-${{ steps.tag.outputs.release_date }} luci-theme-design
+          tag: ${{ steps.tag.outputs.release_tag }}
+          asset_name: ${{ steps.tag.outputs.release_tag }} luci-theme-design
           file: ${{ steps.build.outputs.TARGET }}
           body: ${{steps.github_release.outputs.commits}}
           overwrite: true
