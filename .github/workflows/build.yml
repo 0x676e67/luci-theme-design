@@ -33,6 +33,9 @@ jobs:
           [ -f /etc/issue.net ] && cat /etc/issue.net
           [ -f /etc/issue ] && cat /etc/issue
           ulimit -a
+          
+      - name: Checkout
+        uses: actions/checkout@v3
 
       - name: Extract branch name
         id: extract_branch
@@ -93,8 +96,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         with:
-          name: ${{ steps.tag.outputs.release_tag }} luci-theme-design
+          name: luci-theme-design
           tag_name: ${{ steps.tag.outputs.release_tag }}
           files: ${{ steps.build.outputs.TARGET }}
-          body_path: ${{steps.github_release.outputs.changelog}}
 
