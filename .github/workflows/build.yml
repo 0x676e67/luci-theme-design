@@ -43,10 +43,12 @@ jobs:
         id: build
         run: | 
           cd openwrt-sdk
-          if [ -z "${{ inputs.choich_branch }}" ]; then 
+          if [ -z "${{ inputs.choich_branch }}" ];
+          then 
             git clone https://github.com/gngpp/luci-theme-design.git package/luci-theme-design
           else
             git clone -b "${{ inputs.choich_branch }}" https://github.com/gngpp/luci-theme-design.git package/luci-theme-design
+          fi
           ./scripts/feeds update -a && ./scripts/feeds install -a
           echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
           make defconfig
@@ -65,6 +67,7 @@ jobs:
             echo "release_tag=$(cat Makefile | grep PKG_VERSION | sed 's/PKG_VERSION:=//')-$release_date" >> $GITHUB_OUTPUT
           else
             echo "release_tag=${{ github.ref }}" >> $GITHUB_OUTPUT
+          fi
 
       - name: Build Changelog
         uses: mikepenz/release-changelog-builder-action@v3
