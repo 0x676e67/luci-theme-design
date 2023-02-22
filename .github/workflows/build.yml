@@ -33,17 +33,28 @@ jobs:
           [ -f /etc/issue.net ] && cat /etc/issue.net
           [ -f /etc/issue ] && cat /etc/issue
           ulimit -a
+
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+
+      - name: Get version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+
       - name: Download SDK
         run: |
           wget https://archive.openwrt.org/releases/18.06.9/targets/x86/64/openwrt-sdk-18.06.9-x86-64_gcc-7.3.0_musl.Linux-x86_64.tar.xz
           xz -d openwrt-sdk-18.06.9-x86-64_gcc-7.3.0_musl.Linux-x86_64.tar.xz
           tar -xf openwrt-sdk-18.06.9-x86-64_gcc-7.3.0_musl.Linux-x86_64.tar
           mv openwrt-sdk-18.06.9-x86-64_gcc-7.3.0_musl.Linux-x86_64 openwrt-sdk
+
       - name: Build
         id: build
         run: | 
           cd openwrt-sdk
-          git clone -b main https://github.com/gngpp/luci-theme-design.git package/luci-theme-design
+          git clone -b "${{ steps.extract_branch.outputs.branch }}" https://github.com/gngpp/luci-theme-design.git package/luci-theme-design
           ./scripts/feeds update -a && ./scripts/feeds install -a
           echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
           make defconfig
@@ -53,17 +64,14 @@ jobs:
           echo "TARGET=$(pwd)/$TARGET" >> $GITHUB_OUTPUT
           echo "status=success" >> $GITHUB_OUTPUT
 
-      - name: Get version
-        id: get_version
-        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
-
       - name: Generate release tag
         id: tag
         run: |
           cd openwrt-sdk && cd package/luci-theme-design
-          echo "release_date=$(cat Makefile | grep PKG_RELEASE | sed 's/PKG_RELEASE:=//')" >> $GITHUB_OUTPUT
-          echo "release_tag=$(cat Makefile | grep PKG_VERSION | sed 's/PKG_VERSION:=//')-$release_date" >> $GITHUB_OUTPUT
-          if [ "${{ steps.tag.outputs.release_tag }}" != "${{ steps.get_version.outputs.VERSION }}" ]; then
+          release_date="$(cat Makefile | grep PKG_RELEASE | sed 's/PKG_RELEASE:=//')"
+          release_tag="$(cat Makefile | grep PKG_VERSION | sed 's/PKG_VERSION:=//')-$release_date"
+          echo "release_tag=$release_tag" >> $GITHUB_OUTPUT
+          if [ "$release_tag" != "${{ steps.get_version.outputs.VERSION }}" ]; then
             exit 1
           fi
 
