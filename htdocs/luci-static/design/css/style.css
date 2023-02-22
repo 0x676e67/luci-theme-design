@@ -3225,3 +3225,10 @@ form[action="/cgi-bin/luci/admin/network/wireless_join"] input[class="cbi-button
 .node-services-ddns .cbi-value input[type="text"] {
     width: 100% !important;
 }
+
+/* fix luci-app-fileassistant botton style */
+.fb-container .cbi-button {
+    border-radius: 8px;
+    margin: 3px 3px 3px 0;
+    height: unset !important;
+}
