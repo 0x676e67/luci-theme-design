@@ -3232,3 +3232,8 @@ form[action="/cgi-bin/luci/admin/network/wireless_join"] input[class="cbi-button
     margin: 3px 3px 3px 0;
     height: unset !important;
 }
+
+/* fix luci-app-appfilter table overflow style */
+.node-services-appfilter .cbi-section.cbi-tblsection {
+    overflow: auto;
+}
