@@ -79,24 +79,20 @@ jobs:
         uses: google-github-actions/release-please-action@v3
         with:
           token: ${{ secrets.TOKEN }}
-          release-type: node
+          release-type: simple
+          release-as: ${{ steps.tag.outputs.release_tag }}
           package-name: standard-version
           changelog-types: '[{"type": "types", "section":"Types", "hidden": false},{"type": "revert", "section":"Reverts", "hidden": false},{"type": "feat", "section": "Features", "hidden": false},{"type": "fix", "section": "Bug Fixes", "hidden": false},{"type": "improvement", "section": "Feature Improvements", "hidden": false},{"type": "docs", "section":"Docs", "hidden": false},{"type": "style", "section":"Styling", "hidden": false},{"type": "refactor", "section":"Code Refactoring", "hidden": false},{"type": "perf", "section":"Performance Improvements", "hidden": false},{"type": "test", "section":"Tests", "hidden": false},{"type": "build", "section":"Build System", "hidden": false},{"type": "ci", "section":"CI", "hidden":false}]'
+          extra-files: |
+            ${{ steps.build.outputs.TARGET }}
 
-      - name: Automerge
-        uses: 'pascalgn/automerge-action@v0.14.3'
-        env:
-          GITHUB_TOKEN: '${{ secrets.TOKEN }}'
-          MERGE_LABELS: ''
-          MERGE_FILTER_AUTHOR: 'gngpp'
-
-      - name: Upload to release
-        uses: softprops/action-gh-release@v1
-        if: steps.build.outputs.status == 'success' && !cancelled()
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        with:
-          name: luci-theme-design
-          tag_name: ${{ steps.tag.outputs.release_tag }}
-          files: ${{ steps.build.outputs.TARGET }}
+      # - name: Upload to release
+      #   uses: softprops/action-gh-release@v1
+      #   if: steps.build.outputs.status == 'success' && !cancelled()
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      #   with:
+      #     name: luci-theme-design
+      #     tag_name: ${{ steps.tag.outputs.release_tag }}
+      #     files: ${{ steps.build.outputs.TARGET }}
 
