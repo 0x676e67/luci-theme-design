@@ -43,7 +43,10 @@ jobs:
         id: build
         run: | 
           cd openwrt-sdk
-          git clone -b "${{ inputs.choich_branch }}" https://github.com/gngpp/luci-theme-design.git package/luci-theme-design
+          if [ -z "${{ inputs.choich_branch }}" ]; then 
+            git clone https://github.com/gngpp/luci-theme-design.git package/luci-theme-design
+          else
+            git clone -b "${{ inputs.choich_branch }}" https://github.com/gngpp/luci-theme-design.git package/luci-theme-design
           ./scripts/feeds update -a && ./scripts/feeds install -a
           echo "CONFIG_PACKAGE_luci-theme-design=y" >> .config
           make defconfig
