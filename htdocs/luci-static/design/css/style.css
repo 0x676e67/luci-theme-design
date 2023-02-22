@@ -1698,8 +1698,8 @@ form.inline + form.inline,
 .cbi-input-reload,
 .cbi-button-reload {
     color: var(--bttextColor);
-    background-color: rgb(0,171,232) !important;
-    border-color: rgb(0,171,232) !important;
+    background-color: #337ab7 !important;
+    border-color: #337ab7 !important;
 }
 
 .cbi-button-link:hover,
@@ -1711,9 +1711,10 @@ form.inline + form.inline,
 .cbi-input-reload:hover,
 .cbi-button-reload:hover{
     color: #fff !important;
-    background-color: #337ab7 !important;
-    border-color: #337ab7 !important;
+    background-color: #6A82AE!important;
+    border-color: #6A82AE !important;
 }
+
 
 .cbi-input-apply,
 .cbi-button-apply,
