@@ -6,7 +6,7 @@ import hashlib
 
 import requests
 
-REPO = os.getenv("REPOSITORY", "netbirdio/netbird")
+REPO = os.getenv("REPOSITORY", "gngpp/luci-theme-design")
 GITHUB_TOKEN = os.getenv("TOKEN")
 
 session = requests.Session()
