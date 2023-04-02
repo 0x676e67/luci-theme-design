@@ -2,6 +2,7 @@ name: Release
 
 on:
   push:
+    branches: [ main ]
     tags:
       - 'v*'
   repository_dispatch:
@@ -81,6 +82,15 @@ jobs:
         with:
         # Optionally strip `v` prefix
           strip_v: false
+
+      - name: Archive package
+        uses: actions/upload-artifact@v2
+        if: steps.build.outputs.status == 'success' && !cancelled()
+        with:
+          name: packages
+          path: |
+            ${{ steps.build.outputs.JSON_RESPONSE }}
+          if-no-files-found: error
 
       - name: Upload to release
         uses: softprops/action-gh-release@v1
