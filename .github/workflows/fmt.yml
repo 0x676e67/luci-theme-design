@@ -1,7 +1,6 @@
 name: fmt
 
 on:
-  pull_request:
   push:
     branches:
       - main
@@ -31,7 +30,7 @@ jobs:
       uses: peter-evans/create-pull-request@v4
       with:
         token: ${{ secrets.TOKEN }}
-        branch: fmt
+        branch: main
         delete-branch: true
         add-paths: |
           htdocs/luci-static/design/css/style.css
