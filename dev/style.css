@@ -1293,6 +1293,10 @@ p#shadowsocksr_status {
   transform: rotate(90deg);
 }
 
+.main > .main-left > .nav > li > a[data-title="QuickStart"]:before {
+    content: "\e67e";
+}
+
 .main > .main-left > .nav > .slide > a[data-title="Status"]:before {
     content: "\e6b8";
 }
@@ -1336,18 +1340,15 @@ p#shadowsocksr_status {
   content: "\e7dd";
 }
 
-.main > .main-left > .nav > li > a[data-title="Inital Setup"]:before {
-    content: "\e67e";
-}
-
-.main > .main-left > .nav > li > a[href="/cgi-bin/luci//admin/wizard"]:before {
-    content: "\e67e";
+.main > .main-left > .nav > li > a[href="/cgi-bin/luci//admin/wizard"]:before,
+.main > .main-left > .nav > li > a[data-title="Inital Setup"]:before,
+.main > .main-left > .nav > li > a[data-title="NetworkGuide"]:before {
+    content: "\e719";
 }
 
 .main > .main-left > .nav > li > a[data-title="iStore"]:before {
     content: "\e676";
 }
-
 
 .main > .main-left > .nav > li > a[data-title="Logout"] {
     padding: 0.675rem 0 0.675rem 2.5rem;
