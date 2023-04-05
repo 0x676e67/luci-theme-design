@@ -229,6 +229,7 @@ input[type='checkbox'] {
 input[type='radio'] {
     height: 1.2rem;
     width: 1.2rem;
+    box-shadow: var(--bg);
 }
 
 select[multiple="multiple"] {
