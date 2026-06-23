@@ -95,6 +95,84 @@
   }
 }
 
+body.design-dark {
+    --bg: #000;
+    --bgwhite: #000;
+    --text_color: #fefefe;
+    --active_color: #5ea69b;
+    --active_bottom: #51c291 2px solid;
+    --border_color: #2C2C3A;
+    --navbg_color: hsla(0, 0%, 7%, .8);
+    --nav_border: 1px solid #1c1c1e;
+    --sectionbg_color: #1c1c1e;
+    --sectionbg_color2: #1c1c1e;
+    --section_shaddow: 3px 3px 3px rgba(0,0,0,.05);
+    --section_border: none;
+    --sectiontab_border: none;
+    --sectionnode_border: #3d3d41 1px solid;
+    --cbiline_color: #2d2d2d 1px solid;
+    --tabbg_color: #1c1c1e;
+    --tabmenu_border_lr: none;
+    --tabmenubg_color: none;
+    --tabmenu_bottom: #2d2d2d 1px solid;
+    --tabmenu_radius: 6px 6px 0 0;
+    --inputbg_color: #2f2f2f;
+    --inputtext_color: #fefefe;
+    --input_border: 1px solid #4d4d4d;
+    --mainleftbg_color: #000;
+    --bttext_color: #fefefe;
+    --badgebg_color: #fefefe;
+    --badge_border: #3d3d40 1px solid;
+    --progressbar_color: #6d6d6d;
+    --progressbar: #5ea69b;
+    --progressbartxt_color: #fefefe;
+    --logo_color: #fefefe;
+    --alert_color: #ffffff;
+    --alert_background: rgb(30 30 30);
+    --model_background: #2c2c2e;
+    --model_text_color: #fefefe;
+    --scrollbar_color:#4a4a4a;
+}
+
+body.design-light {
+    --bg: #f2f3f5;
+    --bgwhite: #ffffff;
+    --text_color: #333333;
+    --active_color: #42b98a;
+    --active_bottom: #42b98a 2px solid;
+    --border_color: #e6e9ef;
+    --navbg_color: hsla(0, 0%, 100%, .8);
+    --nav_border: 1px solid #e6e9ef;
+    --sectionbg_color: #ffffff;
+    --sectionbg_color2: #f8f9fa;
+    --section_shaddow: 3px 3px 3px rgba(0,0,0,.04);
+    --section_border: 1px solid #e6e9ef;
+    --sectiontab_border: 1px solid #e6e9ef;
+    --sectionnode_border: #e6e9ef 1px solid;
+    --cbiline_color: #f0f0f0 1px solid;
+    --tabbg_color: #ffffff;
+    --tabmenu_border_lr: 1px solid #e6e9ef;
+    --tabmenubg_color: #ffffff;
+    --tabmenu_bottom: #e6e9ef 1px solid;
+    --tabmenu_radius: 6px 6px 0 0;
+    --inputbg_color: #ffffff;
+    --inputtext_color: #333333;
+    --input_border: 1px solid #dcdfe6;
+    --mainleftbg_color: #f2f3f5;
+    --bttext_color: #333333;
+    --badgebg_color: #333333;
+    --badge_border: #e6e9ef 1px solid;
+    --progressbar_color: #e6e9ef;
+    --progressbar: #42b98a;
+    --progressbartxt_color: #333333;
+    --logo_color: #333333;
+    --alert_color: #000000;
+    --alert_background: rgb(230 230 230);
+    --model_background: #ffffff;
+    --model_text_color: #333333;
+    --scrollbar_color:#d0d0d0;
+}
+
 @font-face {
     font-family: 'icomoon';
     src: url('../fonts/font.woff') format('woff'),

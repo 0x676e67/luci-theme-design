@@ -43,6 +43,17 @@
 	local path = table.concat(disp.context.path, "-")
 
 	http.prepare_content("text/html; charset=UTF-8")
+
+	local design_mode = "normal"
+	local design_navbar = "display"
+	local design_proxy = "openclash"
+	local uci_ok, uci_mod = pcall(require, "luci.model.uci")
+	if uci_ok then
+		local cursor = uci_mod.cursor()
+		design_mode   = cursor:get_first("design", "global", "mode")   or "normal"
+		design_navbar = cursor:get_first("design", "global", "navbar") or "display"
+		design_proxy  = cursor:get_first("design", "global", "navbar_proxy") or "openclash"
+	end
 -%>
 <!DOCTYPE html>
 <html lang="<%=luci.i18n.context.lang%>">
@@ -87,7 +98,7 @@
 	</style>
 	<% end -%>
 </head>
-	<body class="lang_<%=luci.i18n.context.lang%> <% if luci.dispatcher.context.authsession then %>logged-in<% end %> <% if not (path == "") then %>node-<%= path %><% else %>node-main-login<% end %>" data-page="<%= pcdata(path) %>">
+	<body class="lang_<%=luci.i18n.context.lang%> <% if luci.dispatcher.context.authsession then %>logged-in<% end %> <% if not (path == "") then %>node-<%= path %><% else %>node-main-login<% end %><% if design_mode == "dark" then %> design-dark<% elseif design_mode == "light" then %> design-light<% end %>" data-page="<%= pcdata(path) %>">
 <header>
 	<div class="fill">
 		<div class="container">
@@ -98,13 +109,15 @@
 	</div>
 </header>
 
+<% if design_navbar ~= "close" then -%>
 <div class="navbar">
   <a href="/cgi-bin/luci/admin/status/overview"><img src="<%=media%>/images/home.png" /></a>
-  <a href="/cgi-bin/luci/admin/services/openclash"><img src="<%=media%>/images/openclash.png" /></a>
+  <a href="/cgi-bin/luci/admin/services/<%=design_proxy%>"><img src="<%=media%>/images/<%=design_proxy%>.png" /></a>
   <a href="/cgi-bin/luci/admin/network/network"><img src="<%=media%>/images/link.png" /></a>
   <a href="/cgi-bin/luci/admin/status/realtime"><img src="<%=media%>/images/rank.png" /></a>
   <a href="/cgi-bin/luci/admin/system/admin"><img src="<%=media%>/images/user.png" /></a>
 </div>
+<% end -%>
 
 <div class="main">
 	<div style="" class="loading"><span><div class="loading-img"></div><%:Collecting data...%></span></div>
