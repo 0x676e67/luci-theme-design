@@ -11,7 +11,55 @@ var LuciCompat = {
 
 return baseclass.extend({
 	__init__: function() {
+		this.applyDesignConfig();
 		ui.menu.load().then(L.bind(this.render, this));
+	},
+
+	applyDesignConfig: function() {
+		fetch('/luci-static/design/config.json?_=' + Date.now())
+			.then(function(r) { return r.ok ? r.json() : null; })
+			.catch(function() { return null; })
+			.then(function(cfg) {
+				if (!cfg) return;
+				var body = document.body;
+				var root = document.documentElement;
+
+				if (cfg.mode === 'dark') {
+					body.classList.add('design-dark');
+					body.classList.remove('design-light');
+				} else if (cfg.mode === 'light') {
+					body.classList.add('design-light');
+					body.classList.remove('design-dark');
+				}
+
+				var navbar = document.querySelector('.navbar');
+				if (navbar) {
+					navbar.style.display = (cfg.navbar === 'close') ? 'none' : '';
+				}
+
+				if (cfg.navbar_proxy) {
+					var proxyLinks = document.querySelectorAll('.navbar a[href*="/services/"]');
+					proxyLinks.forEach(function(a) {
+						a.href = a.href.replace(/\/services\/[^/]+/, '/services/' + cfg.navbar_proxy);
+						var img = a.querySelector('img');
+						if (img) img.src = img.src.replace(/\/images\/[^/]+\.png/, '/images/' + cfg.navbar_proxy + '.png');
+					});
+				}
+
+				if (cfg.accent_color && /^#[0-9a-fA-F]{3,6}$/.test(cfg.accent_color)) {
+					root.style.setProperty('--active_color', cfg.accent_color);
+					root.style.setProperty('--progressbar', cfg.accent_color);
+				}
+
+				if (cfg.bg_color && /^#[0-9a-fA-F]{3,6}$/.test(cfg.bg_color)) {
+					root.style.setProperty('--bg', cfg.bg_color);
+				}
+
+				if (cfg.wallpaper_url && /^(https?:\/\/|\/)/.test(cfg.wallpaper_url)) {
+					root.style.setProperty('--bg-image', "url('" + cfg.wallpaper_url + "')");
+					body.classList.add('design-wallpaper');
+				}
+			});
 	},
 
 	render: function(tree) {
